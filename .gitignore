@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Next.js build output
+.next/
+out/
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Debug
+*.log
+
+# Build files
+tsconfig.tsbuildinfo
+
+# Excel files (data)
+employee_list.xlsx
+employee_list2.xlsx
