@@ -4,11 +4,26 @@
 
 'use client';
 
-import { Trophy, Sparkles } from 'lucide-react';
+import { Trophy, Sparkles, Wifi, WifiOff } from 'lucide-react';
+import { useRaffleData } from '@/hooks/useRaffleData';
 
 export function Header() {
+  const { error } = useRaffleData();
+  const isOnline = !error;
+
   return (
-    <header className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white shadow-2xl border-b border-blue-700/50">
+    <header className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white shadow-2xl border-b border-blue-700/50 relative">
+      <div className="absolute top-4 right-4">
+        <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+          isOnline 
+            ? 'bg-green-500/20 text-green-200 border border-green-500/30' 
+            : 'bg-red-500/20 text-red-200 border border-red-500/30 animate-pulse'
+        }`}>
+          {isOnline ? <Wifi className="w-3 h-3" /> : <WifiOff className="w-3 h-3" />}
+          <span>{isOnline ? 'Connected' : 'Offline'}</span>
+        </div>
+      </div>
+
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex items-center justify-center gap-6">
           <div className="relative">
